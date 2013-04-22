@@ -159,7 +159,7 @@ namespace Application.Helper.Helpers
         public void OpenLoginPage()
         {
             Logger.Log("<-");
-            Click(By.XPath("//*[@id='LoginPanel']/a"));
+            Click(By.Id("login-panel"));
             Logger.Log("->");
         }
 
@@ -173,14 +173,13 @@ namespace Application.Helper.Helpers
         public void DeleteAllElementsLocally()
         {
             Logger.Log("<-");
-            Sleep(1);
-            ExecuteJavaScript(string.Format("clear({0})",Javascripts.Cosmos));
-            Logger.Log("-> result: ");
+            ExecuteJavaScript(string.Format("CZ.VCContent.removeChild({0}.parent, {0}.id)", Javascripts.Cosmos));
+            Logger.Log("->");
         }
 
         public void WaitWhileHomePageIsLoaded()
         {
-            WaitCondition(() => Convert.ToBoolean(GetJavaScriptExecutionResult("visReg != undefined")), 60);
+            WaitCondition(() => Convert.ToBoolean(GetJavaScriptExecutionResult("CZ.Common.cosmosVisible != undefined")), 60);
         }
     }
 }

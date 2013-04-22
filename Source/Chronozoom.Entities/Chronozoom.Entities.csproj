@@ -56,6 +56,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bitmask.cs" />
     <Compile Include="Bookmark.cs" />
     <Compile Include="Collection.cs" />
     <Compile Include="ContentItem.cs" />
@@ -72,6 +73,7 @@
     <Compile Include="Timeline.cs" />
     <Compile Include="TimelineExtensions.cs" />
     <Compile Include="Tour.cs" />
+    <Compile Include="User.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Settings.StyleCop">

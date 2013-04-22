@@ -43,11 +43,11 @@ namespace Chronozoom.Entities
         [DataMember(Name="uri")]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1056:UriPropertiesShouldNotBeStrings", Justification="Uri not supported in entity framework.")]
         public string Uri { get; set; }
-        
-        [DataMember]
+
+        [DataMember(Name = "mediaSource")]
         public string MediaSource { get; set; }
-        
-        [DataMember]
+
+        [DataMember(Name = "attribution")]
         public string Attribution { get; set; }
 
         [DataMember(Name="UniqueID")]
@@ -68,6 +68,7 @@ namespace Chronozoom.Entities
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1707:IdentifiersShouldNotContainUnderscores", Justification = "Needs to match storage column name")]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "ID", Justification = "Needs to match storage column name")]
+        [DataMember(Name="ParentExhibitId")]
         public Guid Exhibit_ID { get; set; }
     }
 }

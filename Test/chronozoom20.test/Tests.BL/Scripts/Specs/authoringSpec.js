@@ -1,14 +1,15 @@
 ﻿/// <reference path="../Utils/jquery-1.7.2.min.js" />
-/// <reference path="../Utils/jquery-1.8.0.min.js" />
 /// <reference path="../Utils/jasmine-jquery.js" />
 /// <reference path="../Js/layout.js" />
 /// <reference path="../Js/timescale.js" />
+/// <reference path="../Js/cz.dates.js" />
+/// <reference path="../Js/common.js" />
 /// <reference path="../Js/vccontent.js" />
 /// <reference path="../Js/cz.settings.js" />
 /// <reference path="../Js/settings.js" />
-/// <reference path="../Js/newauthoring.js" />
+/// <reference path="../Js/authoring.js" />
 /// <reference path="../Js/czservice.js" />
-
+/// <reference path="js-ignore.js" />
 
 describe("CZ.Authoring", function () {
     var authoring;
@@ -146,23 +147,24 @@ describe("CZ.Authoring", function () {
     });
     
     describe("Exhibit are", function () {
-        parentTimeline.guid = "00000000-0000-0000-0000-000000000000";
-        parentTimeline.id = "t55";
-        parentTimeline.height = 10;
-        parentTimeline.width = 10;
-        parentTimeline.x = 0;
-        parentTimeline.y = 0;
-        parentTimeline.children = [];
-        parentTimeline.type = "timeline";
+        var exhibitParentTimeline = {};
+        exhibitParentTimeline.guid = "00000000-0000-0000-0000-000000000000";
+        exhibitParentTimeline.id = "t55";
+        exhibitParentTimeline.height = 10;
+        exhibitParentTimeline.width = 10;
+        exhibitParentTimeline.x = 0;
+        exhibitParentTimeline.y = 0;
+        exhibitParentTimeline.children = [];
+        exhibitParentTimeline.type = "timeline";
 
         describe("should be created", function () {
             _hovered = parentTimeline;
             var _selectedExhibit = {};
 
             beforeEach(function () {
-                setFixtures('<body></body>');
+                //setFixtures('<body></body>');
                 $('body').prepend('<div id="vc"></div>');
-                $('#vc').data('ui-virtualCanvas', { hovered: parentTimeline, element: $('#vc'), getViewport: function () { return { pointScreenToVirtual: function (xvalue, yvalue) { return { x: xvalue, y: yvalue }; } }; } });
+                $('#vc').data('ui-virtualCanvas', { hovered: exhibitParentTimeline, element: $('#vc'), getViewport: function () { return { pointScreenToVirtual: function (xvalue, yvalue) { return { x: xvalue, y: yvalue }; } }; } });
                 var vc = $('#vc');
                 getXBrowserMouseOrigin = function (jqelement, event) { return { x: 2, y: 2 }; };
                 authoring._isActive = true;

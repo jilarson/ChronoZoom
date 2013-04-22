@@ -64,6 +64,7 @@
     <Content Include="Scripts\Js\cz.settings.js" />
     <Content Include="Scripts\Js\settings.js" />
     <Content Include="Scripts\Js\timescale.js" />
+    <Content Include="Scripts\Specs\authoringSpec.js" />
     <Content Include="Scripts\Specs\CommonSpec.js" />
     <Content Include="Scripts\Specs\CsvParseSpec.js" />
     <Content Include="Scripts\Specs\TimeScaleSpec.js" />
@@ -80,7 +81,10 @@
   <PropertyGroup>
     <PreBuildEvent>cd $(ProjectDir)
 mkdir .\Scripts\Js
-copy "..\..\..\Source\Chronozoom.UI\NewScripts\*.js" "$(ProjectDir)Scripts\Js\" /y</PreBuildEvent>
+mkdir .\Scripts\Utils
+
+copy "..\..\..\Source\Chronozoom.UI\NewScripts\*.js" "$(ProjectDir)Scripts\Js\" /y
+copy "..\..\..\Source\Chronozoom.UI\NewScripts\external\*.js" "$(ProjectDir)Scripts\Utils\" /y</PreBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
