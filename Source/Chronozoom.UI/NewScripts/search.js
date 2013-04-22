@@ -204,10 +204,10 @@ var CZ;
             var url;
             switch(CZ.Settings.czDataSource) {
                 case 'db':
-                    url = "/CZ.svc/Search";
+                    url = "/Chronozoom.svc/Search";
                     break;
                 default:
-                    url = "/CZ.svc/SearchRelay";
+                    url = "/Chronozoom.svc/SearchRelay";
                     break;
             }
             $.ajax({
